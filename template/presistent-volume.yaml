@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: PresistentVolume
+metadata:
+  name: presistent-volume-name
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 5Gi
+  hostPath:
+    path: /data/location
+  
+---
+
+apiVersion: v1
+kind: PresistentVolumeClaim
+metadata:
+  name: presistent-volume-claim-name
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+    requests:
+      storage: 1Gi
